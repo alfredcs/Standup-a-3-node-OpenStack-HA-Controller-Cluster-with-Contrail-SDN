@@ -58,6 +58,7 @@ queue services while OpenStack call Contrail API for network services.
 All interactions are through RESTful API calls.
 
 Contrail HA Installation Steps
+
 1. Make sure all control nodes' clock are synced with OpenStack control nodes and iptables rules allow needed connection requests
 2. Make sure all Openstack controller nodes have needed entries in /etc/hosts, including VIPs
 3. Make sure appropriate repos are specified in /etc/yum.repos.d
@@ -90,7 +91,8 @@ version on compute install supports two network interface allocation
 model for all-in-one and separation of admin and data services with or
 without NIC bonding.
 
- Compute Installation Steps
+Compute Installation Steps
+
 1. Make sure all compute node's clock is synced with OpenStack/Contrail control nodes
 2. Make sure all Openstack controller nodes have needed entries in /etc/hosts, including VIPs
 3. Make sure appropriate repos and specified in /etc/yum.repos.d
