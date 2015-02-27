@@ -14,21 +14,15 @@ with minimum 500G storage space. A installation script
 gluster_install.sh is included to standup such a cluster.
 
 OpenStack HA Installation Steps
-1. Make sure all control nodes' clock are synced and iptables rules
-allow needed connection requests
-2. Make sure all Openstack controller nodes have needed entries in
-/etc/hosts, including VIPs
+
+1. Make sure all control nodes' clock are synced and iptables rules allow needed connection requests
+2. Make sure all Openstack controller nodes have needed entries in /etc/hosts, including VIPs
 3. Make sure appropriate repos are specified in /etc/yum.repos.d4
 4. Yum install openstack-install3 package
-5. Identify an existing glusterfs cluster or configure a new one with
-following script
-    Example: gluster_install.sh -c glusterfs_vip [-m mount_point] [-b
-brick_name] [-v volume_name] [-d device_name] ......
+5. Identify an existing glusterfs cluster or configure a new one with following script
+    Example: gluster_install.sh -c glusterfs_vip [-m mount_point] [-b brick_name] [-v volume_name] [-d device_name] ......
 6. Install OpenStack components on the first OpenStack controller node
-    i.e. openstack_install3.sh [-L] -v openstack_controller_vip   -c
-contrail_controller_vip  -F first_openstack_controller -S
-second_openstack_controller -T third_openstack_controller [ -e
-glusterfs_vip] [-m glusterfs_volume_name]
+    i.e. openstack_install3.sh [-L] -v openstack_controller_vip   -c contrail_controller_vip  -F first_openstack_controller -S second_openstack_controller -T third_openstack_controller [ -e glusterfs_vip] [-m glusterfs_volume_name]
 
 7. Repeat step 4 on the second OpenStack controller node
 8. Repeat step 4 on the third OpenStack controller node
@@ -63,21 +57,17 @@ queue services while OpenStack call Contrail API for network services.
 All interactions are through RESTful API calls.
 
 Contrail HA Installation Steps
-1. Make sure all control nodes' clock are synced with OpenStack control
-nodes and iptables rules allow needed connection requests
-2. Make sure all Openstack controller nodes have needed entries in
-/etc/hosts, including VIPs
+1. Make sure all control nodes' clock are synced with OpenStack control nodes and iptables rules allow needed connection requests
+2. Make sure all Openstack controller nodes have needed entries in /etc/hosts, including VIPs
 3. Make sure appropriate repos are specified in /etc/yum.repos.d
 4. Yum install sdn-install3 package
 5. Install Contrail components on the first Contrail controller node
-    i.e. ./contrail_neutron_install3.sh [-L] -o
-openstack_controller_vip  -F first_contrail_controller -S
-second_contrail_controller -T third_contrail_controller
+    i.e. ./contrail_neutron_install3.sh [-L] -o openstack_controller_vip  -F first_contrail_controller -S second_contrail_controller -T third_contrail_controller
 
 6. Repeat step 4 on the second Contrail controller node
 7. Repeat step 4 on the third Contrail controller node
-8. Restart all services list below all on the 3 Contrail controller
-nodes
+8. Restart all services list below all on the 3 Contrail controller nodes
+
     service keepalived restart
     service haproxy restart
     service zookeeper restart
@@ -100,10 +90,8 @@ model for all-in-one and separation of admin and data services with or
 without NIC bonding.
 
  Compute Installation Steps
-1. Make sure all compute node's clock is synced with OpenStack/Contrail
-control nodes
-2. Make sure all Openstack controller nodes have needed entries in
-/etc/hosts, including VIPs
+1. Make sure all compute node's clock is synced with OpenStack/Contrail control nodes
+2. Make sure all Openstack controller nodes have needed entries in /etc/hosts, including VIPs
 3. Make sure appropriate repos and specified in /etc/yum.repos.d
 4. make sure the OS kernel matches the prerequisite
 5. Yum install compute-install3 package
