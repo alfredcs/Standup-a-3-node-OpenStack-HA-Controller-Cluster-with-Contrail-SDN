@@ -44,6 +44,7 @@ service openstack-nova-scheduler start|stop|restart
 service httpd start|stop|restart
 
 That's about it for OpenStack !
+
 --------------------------------------------
 
 The SDN installation package contains codes to install, configure and
